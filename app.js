@@ -28,6 +28,17 @@ const {
   zybriqSchema
 } = require("./models/zybriqs-model");
 
+if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
+
+
+
 app.use(express.static(__dirname + "/client"));
 
 // app.use('/client', express.static(__dirname + "/client"));
@@ -67,10 +78,10 @@ mongoose
   // .connect("mongodb://localhost:27017/zybriqsDB", {
   .connect(
     "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority", {
-      // .connect("mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+    // .connect("mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
   )
   .then((dbConnection) => {
     db = dbConnection;
