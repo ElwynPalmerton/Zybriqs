@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Zybriqs</title>
@@ -8,12 +9,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="viewStyles">
 
+  <head>
+
+    <!-- meta  -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Stylesheets  -->
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="styles/layout2.css" />
+    <link rel="stylesheet" type="text/css" href="styles/sliderStyles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/headerStyle.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- End Stylesheets  -->
+
+
+
+    <!-- jQuery  -->
+    <!-- Poppper  -->
+    <!-- BootStrap  -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+      </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+
+
+
+  </head>
 
   <style>
     p,
-    h1,
     h2 {
       color: #aaa;
+    }
+
+    h1,
+    .signature {
+      color: #c7d8ed
     }
 
     p {
@@ -58,49 +101,62 @@
     }
   </style>
 
+
+
 </head>
 
 <body>
 
-  <%-include('../partials/header') -%>
-  <main>
-    <div class="container">
-      <h1> About Zybriqs</h1>
-      <p>
-        This project was created as a way to bridge the gap, for me, between art and web development. As an artist I
-        have had a long-term interest in contemporary art - in particular, abstract painting, process-based abstraction,
-        and conceptual art. My work as a painter is process-driven. It is determined by improvisatory activity as an
-        aesthetic response to the world around me.
-        This
-        sensibility - which embraces both rigorous as well as intuitive aspects of art-making - informs Zybriqs.
-      </p>
-      <p>
-        In particular, web development has given me a new medium for exploring those concerns. Code, as such, is a
-        creative medium for spontaneously generating form and searching for unpredictable
-        outcomes. Where painting has an implied sense of contingency, this contingency is explicitly built into Zybriqs.
-        The animation is algorithmically generated - a function of both code and choices made by the Zybriqs user.
-      </p>
-      <p>
-        The movement of the circles is determined by physics equations modeling gravity, wind force, and drag
-        to create spontaneous and free flowing movement. The idea of a scientific “model” lies poised between what we
-        might call
-        non-objective abstraction and representational art. What does it mean, for instance, to immerse ourselves into a
-        virtual world? Of course, with Zybriqs, the system is limited in certain ways and relatively absurd: wind is
-        generated inside an otherwise sealed rectangle - while the balls respond to wind and gravity (suggesting mass
-        and volume) yet never collide.
-      </p>
-      <p>
+  <header>
+    <div id="navContainer">
+      <nav class="navbar navbar-expand-sm navbar-dark">
+        <a class="name navbar-brand" href="/">
+          Zybriqs
+        </a>
 
-        The overall simplicity of the animation is also a deliberate choice - a way of engaging directly with the
-        surfaces
-        and elements of contemporary web development design sensibilities. It reminds us of the medium itself and
-        invites
-        one to engage with it directly. The overt similarities to gaming and web-design underscores the relevance of
-        these
-        questions. Zybriqs, then, asks us what possibilities exist somewhere between the virtual and physical worlds in
-        which we currently divide our time.
-      </p>
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+
+
+          <ul class="navbar-nav ml-auto">
+            <% if (user) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</span></a>
+              </li>
+              <% } else if (!user) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/register">Register</a>
+                </li>
+                <% } %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/About">About</a>
+                  </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="container">
+      </br>
+      <h1> About Zybriqs</h1>
+      </br>
+      <p> Zybriqs was with P5.js, Javascript, Node.js, Express, MongoDB, and Mongoose.</p>
+
       <p>
+        If you would like to see other projects which I have made please checkout my web developer portforlio at <a
+          href="http://elwynwebdev.com">elwynwebdev.com</a>. </p>
+
+      </p>
+      </br>
+      <p class="signature">
         -Elwyn Palmerton
       </p>
 
@@ -109,7 +165,7 @@
 
 
   </main>
-  <%-include('../partials/footer') -%>
+
 </body>
 
 </html>
