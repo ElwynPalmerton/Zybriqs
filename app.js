@@ -37,11 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-
-
 app.use(express.static(__dirname + "/client"));
-
-// app.use('/client', express.static(__dirname + "/client"));
 
 app.set("view engine", "ejs");
 
@@ -51,8 +47,6 @@ app.use(
   })
 );
 
-
-
 let db;
 
 app.use(
@@ -60,8 +54,7 @@ app.use(
     store: new mongoStore({
       url: "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority",
     }),
-    // secret: process.env.SECRET,
-    secret: "Dumb secret",
+    secret: process.env.SECRET,
     resave: true,
     saveUninitialized: false,
     cookie: {
