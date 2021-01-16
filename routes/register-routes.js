@@ -13,18 +13,6 @@ router.get("/", (req, res) => {
   });
 });
 
-// router.get("/success", (req, res) => {
-//   console.log("in registerSuccess route.");
-
-//   console.log("isAuth ", req.isAuthenticated());
-//   if (req.isAuthenticated()) {
-//     res.render("pages/registerSuccess", {
-//       user: req.user,
-//     });
-//   } else {
-//     res.redirect("/login");
-//   }
-// });
 
 router.post("/", (req, res) => {
   let username = req.body.username;

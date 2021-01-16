@@ -12,8 +12,6 @@ class Liquid {
     Object.assign(thisColor, assignColor);
     this.color = thisColor;
 
-    // this.p5Color = color(this.color.h, this.color.s, this.color.l, this.color.a);
-
     //Coefficient of drag.
     this.c = c || 0.3;
 
@@ -23,8 +21,6 @@ class Liquid {
 
     this.width = Math.abs(this.start.x - this.end.x);
     this.height = Math.abs(this.start.y - this.end.y);
-
-    //This is weird, rewrite this:
 
     if (this.start.x > this.end.x) {
       let tempX = this.start.x;

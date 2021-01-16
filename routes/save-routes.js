@@ -10,19 +10,11 @@ const {
   zybriqsSchema
 } = require("../models/zybriqs-model");
 
-
 const maxZybs = 3;
-
-
-
-// app.use(express.static(__dirname + "/client"));
-
-
 
 // Initial route
 // for saving Zybriqs 's.
 // Front-end sends sends a post request of the Zybriq state here //////from submitData (in loadData.js);
-
 
 saveRoutes.post("/", (req, res) => {
   req.session.state = req.body.state;
@@ -33,27 +25,6 @@ saveRoutes.post("/", (req, res) => {
     message: "Success",
   });
 });
-
-///Save over existing Zybriq.
-// saveRoutes.get("/saveOver", (req, res) => {
-//   //Gets a list of all saved Zybriqs and sends it to the pages/saveOver.ejs view.
-//   let zibNames = [];
-//   let zibIds = [];
-
-//   for (let zib of req.user.Zybriqs) {
-//     zibNames.push(zib.name);
-//     zibIds.push(zib._id);
-//   }
-
-//   console.log("Rendering maxiumum Zybs");
-
-//   res.render("pages/saveOver.ejs", {
-//     user: req.user,
-//     zibNames: zibNames,
-//     zibIds: zibIds,
-//   });
-// });
-
 
 
 saveRoutes.post("/saveOver", (req, res) => {
@@ -68,11 +39,6 @@ saveRoutes.post("/saveOver", (req, res) => {
     zyb.state = req.session.state;
     zyb.save().then((savedZyb) => {
       res.redirect('/success');
-      // res.render("pages/saveSuccess.ejs", {
-      //   user: req.user,
-      //   message: "Success",
-      //   id: savedZyb.id,
-      // });
     });
   });
 });
@@ -81,15 +47,9 @@ saveRoutes.post("/saveOver", (req, res) => {
 
 saveRoutes.get('/session', (req, res) => {
   if (req.isAuthenticated()) {
-    //console.log("in saveName/session", req.session.state);
     let state = JSON.parse(req.session.state);
-    //console.log('Sending session:', state);
     res.send(req.session.state);
   } else {
-    //req.logout();
-    //req.session.destroy();
-    // res.redirect("/");
-    //console.log('Sending null session.');
     res.send(null);
   }
 })
@@ -136,15 +96,15 @@ saveRoutes.post("/saveZibriq", (req, res) => {
 
     User.find({
       $and: [{
-          username: req.user.username,
-        },
-        {
-          Zybriqs: {
-            $elemMatch: {
-              name: zName,
-            },
+        username: req.user.username,
+      },
+      {
+        Zybriqs: {
+          $elemMatch: {
+            name: zName,
           },
         },
+      },
       ],
     }).then((foundZyb) => {
       if (foundZyb.length !== 0) {
@@ -160,8 +120,8 @@ saveRoutes.post("/saveZibriq", (req, res) => {
         tempZ.save();
 
         User.findOne({
-            username: req.user.username,
-          })
+          username: req.user.username,
+        })
           .then((currentUser) => {
             currentUser.Zybriqs.push(tempZ);
             currentUser
@@ -170,11 +130,6 @@ saveRoutes.post("/saveZibriq", (req, res) => {
 
                 req.user.tempID = tempZ.id;
                 res.redirect('/success');
-                // res.render("pages/saveSuccess", {
-                //   user: req.user,
-                //   message: "Success",
-                //   id: tempZ.id,
-                // });
               })
               .catch((err) => {
                 console.log(err);
@@ -187,8 +142,6 @@ saveRoutes.post("/saveZibriq", (req, res) => {
         //
       }
     });
-    //
-    //Console.log the user out here.
   } else {
     res.redirect('/login');
   }

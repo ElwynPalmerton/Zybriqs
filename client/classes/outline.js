@@ -1,8 +1,5 @@
 class Outline {
-  //Change name to Block.
   constructor(start, end, color) {
-    //Color variables.
-    //Color variables.
 
     start.x = start.x / scl;
     start.y = start.y / scl;
@@ -13,7 +10,6 @@ class Outline {
     Object.assign(thisColor, assignColor);
     this.color = thisColor;
 
-    //I think that this has to be before the assignments below.
     this.start = start; //Vector.
     this.end = end; //Vector.
 
@@ -38,9 +34,6 @@ class Outline {
 
     this.width = Math.abs(this.start.x - this.end.x);
     this.height = Math.abs(this.start.y - this.end.y);
-
-    // if (this.start.x > this.end.x) this.start.x = this.end.x;
-    // if (this.start.y > this.end.y) this.start.y = this.end.y;
   }
 
   displayDimmed(c, fColor) {
@@ -56,7 +49,6 @@ class Outline {
     let p5Color = color(h, s - dimAmt, l, parseFloat(a));
     stroke(p5Color);
     strokeWeight(5);
-    //fill(fColor);
     noFill();
     rect(
       this.start.x * scl,
@@ -66,10 +58,7 @@ class Outline {
     );
   }
 
-  // display(c, fColor) {
   display() {
-    //refactor to put all of the position stuff into the update function?
-    //Make an if-then which does noFill() during setup and fill during run.
     let {
       h,
       s,

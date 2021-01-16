@@ -8,14 +8,11 @@ const {
 } = require("../models/zybriqs-model");
 
 router.get("/", (req, res) => {
-  //console.log("in load Data");
   if (req.isAuthenticated()) {
     Zybriq.find({
-        // name: "HelloThere",
-      })
+      //Something missing here?
+    })
       .then((foundZybriq) => {
-        // console.log(foundZybriq[1].name);
-        // console.log(foundZybriq[1].state);
 
         let zibNames = [];
         let zibIds = [];
@@ -30,11 +27,6 @@ router.get("/", (req, res) => {
           zibNames: zibNames,
           zibIds: zibIds,
         });
-
-        //res.render
-        //Create the res.render fild under l
-
-        //res.send(foundZybriq.state);
       })
       .catch((err) => {
         console.log(err);

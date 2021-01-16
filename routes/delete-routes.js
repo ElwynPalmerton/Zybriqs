@@ -41,7 +41,6 @@ router.get('/', (req, res) => {
       user: req.user,
       msg: "You must be logged in to save your Zybriqs.",
       cameFrom: "deleteRoute",
-      //Don't forget to change this to delete route.
     });
   }
 });

@@ -13,7 +13,6 @@ function addOptions(objects) {
   }
 }
 
-
 function createController() {
 
   let objectSelect = document.getElementById('objectSelector');
@@ -21,20 +20,17 @@ function createController() {
 
   let obj = objectSelect.value;
   let objArray = getObjectArray(obj);
-  addOptions(objArray); //Pass in numberSel as a variable?
+  addOptions(objArray);
 
   if (objArray.length > 0) {
     modifySliders(objArray[numberSel.value].color);
   } else {
     modifySliders();
   }
-
-
 } //End of createController.
 
 
 function readSliders(objectNumber) {
-
 
   let numberSelector = document.getElementById('numberSelector');
   let objectSelector = document.getElementById('objectSelector');
@@ -74,6 +70,7 @@ function readSliders(objectNumber) {
   });
 }
 
+
 function readController() {
   //Gets the type of object being modified.
   let objectSelector = document.getElementById('objectSelector');
@@ -88,7 +85,6 @@ function readController() {
 
 
 function modifySliders(newColor) {
-
   if (newColor === undefined) {
     newColor = {
       h: 180,
@@ -103,16 +99,15 @@ function modifySliders(newColor) {
   let lSlider = document.querySelector(".combinedSliders .lSlider");
   let aSlider = document.querySelector(".combinedSliders .aSlider");
 
-  hSlider.value = newColor.h; //modifySliders should set the sliders equal to color on each object.
+  hSlider.value = newColor.h;
   sSlider.value = newColor.s;
   lSlider.value = newColor.l;
   aSlider.value = newColor.a;
 }
 
+
 function updateSliders() {
-  //updateSliders() is called from the onchange in the index.html file.
-  //updateSldiers() is the same as updateSliders2 except that it calls
-  // createController();
+
   createController();
 
   let objectSelector = document.getElementById('objectSelector');
@@ -125,15 +120,13 @@ function updateSliders() {
   } else {
     modifySliders();
   }
-
 }
+
 
 function updateSliders2() {
   //updateSliders2 is the same as updateSliders() except that
   //... it does NOT call createController() because there was
   //... an issue where it would reset to the first object selection every time.
-
-  //createController();
 
   let objectSelector = document.getElementById('objectSelector');
 
@@ -146,7 +139,6 @@ function updateSliders2() {
   } else {
     modifySliders();
   }
-
 }
 
 
@@ -154,16 +146,12 @@ function getObjectArray(obj) {
   let objArray = [];
   if (obj === "Balls") {
     objArray = balls;
-    //readColorSliders2(numberSelector, "#combinedSliders", balls);
   } else if (obj === "Drag") {
     objArray = liquids;
-    //readColorSliders2(numberSelector, "#combinedSliders", liquids);
   } else if (obj === "Accelerator") {
     objArray = reverseLiquids;
-    //readColorSliders2(numberSelector, "#combinedSliders", reverseLiquids);
   } else if (obj === "Blocks") {
     objArray = blocks;
-    //readColorSliders2(numberSelector, "#combinedSliders", blocks);
   } else if (obj === "Background") {
     objArray = backgroundArray;
   }

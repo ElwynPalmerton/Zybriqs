@@ -22,13 +22,11 @@ function lastActive() {
   return buttons.some((btn) => btn.className === "active");
 }
 
-/////PPP/////////
+
 
 
 function keyboardResponse(playButton) {
   document.addEventListener('keypress', e => {
-
-    console.log(e.which);
 
     if (keyCode === 80) {
       console.log("pressed P");
@@ -45,9 +43,7 @@ function keyboardResponse(playButton) {
 
     if (keyCode === 27) {
       console.log("Pressed escape");
-      //initializeCanvas(initHeight, initWidth, setScale3);
     }
-
   })
 }
 
@@ -60,6 +56,7 @@ function setCursor() {
   }
 }
 
+
 function play(playBtn) {
   run = true;
   playBtn.innerHTML = "<i class=\"fa fa-pause\"></i>";
@@ -69,6 +66,7 @@ function play(playBtn) {
   clearDuplicates();
   loop();
 }
+
 
 function pause(playBtn) {
   run = false;
@@ -80,6 +78,7 @@ function pause(playBtn) {
   noLoop();
 }
 
+
 function pausePlay(pButton) {
   buttons.forEach(b => (b.className = "notActive"));
 
@@ -89,7 +88,6 @@ function pausePlay(pButton) {
     play(pButton);
     drawButtonOn = false;
   } else {
-    //It seems like this is working without the if statement to check "run" but I do use run elsewhere.
     pause(pButton);
   }
 }
@@ -107,7 +105,6 @@ function makePlayButton(playButton) {
   //Creating btn and btn2 and adding the eventlisteners should be wrapped in a separate function.
   playButton.addEventListener("click", e => {
     //If the play/resume button is hit it plays.
-    //Also add stopPropagation.
     e.preventDefault();
     e.stopPropagation();
     pausePlay(playButton);
@@ -117,14 +114,12 @@ function makePlayButton(playButton) {
 
 function makeBlockButton(pButton) {
   let drawBlockButton = document.getElementById('newBlockButton');
-  // buttonContainer.appendChild(drawBlockButton.elt);
   buttons.push(drawBlockButton);
 
   drawBlockButton.addEventListener('click', e => {
     e.stopPropagation();
     let current = drawBlockButton.className === "active";
     let lastActive = buttons.some((btn) => btn.className === "active");
-    //Can I use the funciton which I wrote above instead.
     drawButtonOn = true;
 
     buttons.forEach(b => (b.className = "notActive"));
@@ -143,8 +138,7 @@ function makeBlockButton(pButton) {
 
     setCursor();
     removeButtonOn = false;
-    objectType = "Block"; //This should be passed in as an object instead of this.
-    //...Then I would have to have it return the new object and push it to the correct array in here.
+    objectType = "Block";
     listeners();
   });
 }
@@ -161,7 +155,6 @@ function makeDragButton(pButton) {
     buttons.forEach(b => (b.className = "notActive"));
     e.stopPropagation();
     drawButtonOn = true;
-    //buttons.forEach(b => (b.className = "notActive"));
     if (run === true) {
       pause(pButton);
       drawDragButton.className = "active";
@@ -191,7 +184,6 @@ function makeReverseDragButton(pBtn) {
     e.stopPropagation();
     resetButtons();
     drawButtonOn = true;
-    //buttons.forEach(b => (b.className = "notActive")); //Clear function
     if (run === true) {
       pause(pBtn);
       drawReverseDragButton.className = "active";
@@ -204,7 +196,6 @@ function makeReverseDragButton(pBtn) {
       drawReverseDragButton.className = "active";
     }
     setCursor();
-    //removeButtonOn = false; //Clear function.
     objectType = "Reverse Drag";
     listeners();
   });
@@ -237,7 +228,6 @@ function makeRemoveButton(pBtn) {
     drawButtonOn = false; //Clear function.
     removeButtonOn = true;
 
-    //I don't need this line for this function: objectType = "Reverse Drag";
     showRemoveButtons();
   });
 }
@@ -248,13 +238,10 @@ function makeAddBallsButton() {
   resetButtons();
   addBallsButton.addEventListener('click', (e) => {
     e.stopPropagation();
-    //addBallsButton.elt.className = "active";
     resetButtons();
-    //addBallsButton.elt.className = "active";
     addBalls();
     updateSliders();
     drawElementsDuringSetup();
-    //I don't need this line for this function: objectType = "Reverse Drag";
   });
 }
 
@@ -267,7 +254,6 @@ function makeRemoveBallsButton() {
 
   removeBallButton.addEventListener('click', (e) => {
 
-    //removeBallsButton.elt.className = "active";
     if (balls.length > 0) {
       removeBalls();
       updateSliders();
@@ -275,7 +261,6 @@ function makeRemoveBallsButton() {
     } else {
       console.log('There are no balls to remove.');
     }
-    //I don't need this line for this function: objectType = "Reverse Drag";
   });
 }
 
@@ -296,7 +281,6 @@ function makeResetButtons() {
     //
     qty = 0;
     listeners();
-    //I don't need this line for this function: objectType = "Reverse Drag";
   });
 }
 
@@ -329,22 +313,18 @@ function makeNumbersButtons(pBtn) {
     setCursor();
     drawElementsDuringSetup()
     showNumbers();
-    //I don't need this line for this function: objectType = "Reverse Drag";
   });
 }
 
 
 function makeInfoButton() {
 
-  //infoPopup = true;
   let infoButton = document.getElementById('newInfoButton');
   infoButton.className = "active"
-  //buttons.push(numbersButton);
   infoButton.addEventListener('click', (e) => {
 
 
     e.stopPropagation();
-    //resetButtons();
 
     if (infoPopup === true) {
       infoPopup = false;
@@ -361,11 +341,6 @@ function makeInfoButton() {
 }
 
 
-
-// document.addEventListener('keypress', e => {
-//   console.log('hello');
-// })
-
 function makeZenModeButtons() {
   let zenButton = document.getElementById('newZenModeButton')
   buttons.push(zenButton);
@@ -375,7 +350,6 @@ function makeZenModeButtons() {
     let elem = document.querySelector('canvas');
     resetButtons();
 
-    //fullScreen = true;
     openFullScreen();
 
     function openFullScreen() {
@@ -399,14 +373,13 @@ function makeZenModeButtons() {
         drawElementsDuringSetup();
       }
     }
-    //I don't need this line for this function: objectType = "Reverse Drag";
   });
 }
 
 
 
 
-function resetButtons() { //Change name to clearButtons();
+function resetButtons() {
   drawButtonOn = false; //Clear function.
   removeButtonOn = false; //Clear function.
   buttons.forEach(b => (b.className = "notActive")); //Clear function
@@ -428,8 +401,6 @@ function clearDuplicates() {
       liquids[i].start.y === liquids[i - 1].start.y
     ) {
       liquids.splice(i, 1);
-      //updateSliders();
-      //removeDragBoxSelector();
     }
   }
 
@@ -439,8 +410,6 @@ function clearDuplicates() {
       reverseLiquids[i].start.y === reverseLiquids[i - 1].start.y
     ) {
       reverseLiquids.splice(i, 1);
-      // updateSliders();
-      //removeAccelBoxSelector();
     }
   }
 
@@ -450,8 +419,6 @@ function clearDuplicates() {
       blocks[i].start.y === blocks[i - 1].start.y
     ) {
       blocks.splice(i, 1);
-      // updateSliders();
-      //removeBlocks();
     }
   }
 } //End of clearDuplicates();

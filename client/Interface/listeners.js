@@ -1,7 +1,6 @@
 function listeners() {
   //listeners gets called from the makeBlockButton and the MakeDragButton
   drawElementsDuringSetup();
-  //showNumbers();
 
   let startRect, endRect;
   noStroke();
@@ -12,21 +11,16 @@ function listeners() {
   function onMouseDown() {
     if (drawButtonOn) {
       isDrawing = true;
-      //Maybe I need an if (event.target thingie here);
       startRect = createVector(mouseX, mouseY).copy();
     }
   }
 
   let cnv = document.getElementById("canvasContainer");
-  //document.addEventListener("mousedown", onMouseDown);
   cnv.addEventListener("mousedown", onMouseDown);
-
-  //document.addEventListener("mousedown", onMouseDown);
 
   cnv.addEventListener("mousemove", () => {
     if (isDrawing === true) {
       endRect = createVector(mouseX, mouseY);
-      //Pass in the background color variable here.
 
       drawElementsDuringSetup();
 
@@ -34,8 +28,6 @@ function listeners() {
       if (endRect.x <= 0) endRect.x = 1;
       if (endRect.y >= height) endRect.y = height - 1;
       if (endRect.y <= 0) endRect.y = 1;
-      //Check edges of the other rectangles and balls so that rectangles cannot overlap.
-      //Make a minimum size for rectangles.
       makeRectangle(startRect, endRect); // args are vectors.
     }
   });
@@ -57,12 +49,10 @@ function listeners() {
       endRect.x < width &&
       endRect.y < height
     ) {
-      //Make a minimum size for rectangles using an if-then statement here (and a pop-up?)
       //Instead of "Outline" the class type should be a varible which is passed in from listeners.
-      //
+
 
       //Snap to grid.
-
       if (gridActive) {
         let gridSize = 25;
         gridSize *= scl;
@@ -124,8 +114,6 @@ function listeners() {
           );
           if (newLiquid.width > minSize && newLiquid.height > minSize) {
             liquids.push(newLiquid);
-            //This should return an object of the type passed into listeners();
-            //... and then this stuff should go in the button.
             clearDuplicates();
             createController();
             updateSliders2();

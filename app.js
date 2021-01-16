@@ -52,7 +52,7 @@ let db;
 app.use(
   session({
     store: new mongoStore({
-      url: "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority",
+      url: process.env.DATABASE_URL,
     }),
     secret: process.env.SECRET,
     resave: true,
@@ -68,10 +68,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose
-  // .connect("mongodb://localhost:27017/zybriqsDB", {
+
   .connect(
-    "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority", {
-    // .connect("mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority", {
+    process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
@@ -92,27 +91,23 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-let tempZybriq; //I probably don't need this.
+let tempZybriq;
 
 /////////////ROOT///////////////
 app.get("/", (req, res) => {
-  // console.log("rendering");
   res.render("pages/index", {
     user: req.user,
   });
-  //res.sendFile(path.join(__dirname, "client", "index.html"));
 });
-//register routes.
+
 app.use("/register", registerRoutes);
 
 app.use("/restore", restoreRoutes);
 
 app.get("/restore", (req, res) => {
-  // res.sendFile(path.join(__dirname, "client", "index.html"));
   res.render("pages/index", {
     user: req.user,
   });
-  //I don't know how to reference the __dirname to a differenct folder using this command or whatever it is I need to do.
 });
 
 app.use("/login", loginRoutes);
