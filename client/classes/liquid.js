@@ -24,9 +24,9 @@ class Liquid {
     this.width = Math.abs(this.start.x - this.end.x);
     this.height = Math.abs(this.start.y - this.end.y);
 
-    //This is weird, rewrite this:
-
     if (this.start.x > this.end.x) {
+
+      //Use .copy()????
       let tempX = this.start.x;
       this.start.x = this.end.x;
       this.end.x = tempX;

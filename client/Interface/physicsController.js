@@ -57,7 +57,6 @@ function readGravitySlider() {
 function readWindSliders() {
 
   let windForceSlider = document.getElementById('windForce');
-  let windVarianceSlider = document.getElementById('variance');
   let windDirectionSlider = document.getElementById('direction');
 
   windForceSlider.addEventListener('input', () => {
@@ -70,12 +69,6 @@ function readWindSliders() {
 }
 
 function calculateWind() {
-  /*
-  const windC = 0.05;
-  let intensityInput;
-  let varianceInput;
-  let directionInput;
-  */
 
   //The intensity input should be scaled.
   let intensityScale = 0.05;

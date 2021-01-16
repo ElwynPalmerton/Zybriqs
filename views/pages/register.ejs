@@ -52,6 +52,10 @@
     .buttonDiv {
       text-align: center;
     }
+
+    span {
+      color: red;
+    }
   </style>
 
 </head>
@@ -64,6 +68,8 @@
       <form action="/register" method="post">
 
         <p> <%= msg %> </p>
+        <p> <span>WARNING!</span> This site is experimental and still undergoing testing. It <i> may not be secure. </i>
+          Please use a <i>throwaway password</i> which you do not use on any other sites if you choose to register. </p>
         <label for="username">Name:</label>
         </br>
         <input name="username" placeholder="name">

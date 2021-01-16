@@ -124,7 +124,7 @@ function makeBlockButton(pButton) {
     e.stopPropagation();
     let current = drawBlockButton.className === "active";
     let lastActive = buttons.some((btn) => btn.className === "active");
-    //Can I use the funciton which I wrote above instead.
+    // Can I use the funciton which I wrote above instead
     drawButtonOn = true;
 
     buttons.forEach(b => (b.className = "notActive"));

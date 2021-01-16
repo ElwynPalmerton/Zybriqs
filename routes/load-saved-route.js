@@ -2,17 +2,16 @@ const router = require("express").Router();
 const passport = require("passport");
 const User = require("../models/mongoose-model");
 const passportLocalMongoose = require("passport-local-mongoose");
-const {
-  Zybriq,
-  zybriqsSchema
-} = require("../models/zybriqs-model");
+const { Zybriq, zybriqsSchema } = require("../models/zybriqs-model");
+
+//loadSavedName/...
 
 router.get("/", (req, res) => {
   //console.log("in load Data");
   if (req.isAuthenticated()) {
     Zybriq.find({
-        // name: "HelloThere",
-      })
+      // name: "HelloThere",
+    })
       .then((foundZybriq) => {
         // console.log(foundZybriq[1].name);
         // console.log(foundZybriq[1].state);

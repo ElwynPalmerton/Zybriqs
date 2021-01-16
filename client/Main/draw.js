@@ -10,7 +10,7 @@ function draw() {
     backgroundArray[0].display();
 
     balls.forEach(ball => {
-      
+
       //Calculate wind.
       let wind = calculateWind();
       //calculateWind() is in Interface/physicsController - I should move this.
@@ -19,7 +19,7 @@ function draw() {
       ball.applyForce(wind);
 
       //Calculate gravity.
-      var gravity = createVector(0, gForce); //This can be a global variable (unless it can be user modified?
+      var gravity = createVector(0, gForce); //gForce is modified with the gravity slider.
       gravity.mult(ball.mass);
       ball.applyForce(gravity);
 
@@ -31,7 +31,7 @@ function draw() {
         }
       });
 
-      //Calculate reverse drag
+      //Calculate reverse drag i.e. acceleration.
       //if it is in the reverseLiquid. //See above.
       reverseLiquids.forEach((rl) => {
         if (ball.isInside(rl)) {
