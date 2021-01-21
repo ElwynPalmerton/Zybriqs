@@ -29,21 +29,22 @@
     }
 
     .container {
-      width: 200px !important;
+      width: 300px !important;
       margin: 0 auto !important;
     }
 
     label {
-      width: 200px;
+      width: 300px;
       margin-right: 30px;
     }
 
     input {
+      width: 300px;
       margin-bottom: 23px !important;
     }
 
     button {
-      width: 150px;
+      width: 300px;
       margin: 30px auto !important;
     }
 
@@ -59,37 +60,46 @@
 
 </head>
 
-<body>
-  <%-include('../partials/header') -%>
-  <div class="container">
+<!-- This is very weird and patchy but the VSCode formatting was messing up the filepath and this is what I had time to figure out: -->
 
-    <main>
-      <form action="/login" method="post">
-        <input hidden name="cameFrom" value=<%=cameFrom%>>
-        <h2> Login </h2>
-        <p> <%= msg %> </p>
-        <label for=" username">Name:</label>
-        </br>
-        <input name="username" placeholder="name">
-        </br>
-        <label for="password">Password:</label>
-        </br>
-        <input name="password" type="password" placeholder="Password">
-        </br>
-        <div class="buttonDiv">
-          <button type="submit">Login</button>
-        </div>
-      </form>
+<% headerPath="../partials/header" %>
+  <%-include(`${headerPath}`) -%>
 
-      <div class="loginRegister">
-        <p>OR</p>
-        <form action="/register" method="get">
-          <button action="/register" method="get">Register</button>
-        </form>
+    <body>
+      <div class="container">
+
+        <main>
+          <form action="/login" method="post">
+            <input hidden name="cameFrom" value=<%=cameFrom%>>
+            <h2> Login </h2>
+            <p>
+              <%= msg %>
+            </p>
+            <label for=" username">Name:</label>
+            </br>
+            <input name="username" placeholder="name">
+            </br>
+            <label for="password">Password:</label>
+            </br>
+            <input name="password" type="password" placeholder="Password">
+            </br>
+            <div class="buttonDiv">
+              <button type="submit">Login</button>
+            </div>
+          </form>
+
+          <div class="loginRegister">
+            <p>OR</p>
+            <form action="/register" method="get">
+              <button action="/register" method="get">Register</button>
+
+            </form>
+            <a class="google-btn" href="/login/google"><button>Google+</button></a>
+
+          </div>
+
       </div>
+      </main>
+    </body>
 
-  </div>
-  </main>
-</body>
-
-</html>
+    </html>

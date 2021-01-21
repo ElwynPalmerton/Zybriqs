@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
+const db = require('../config/passport-setup');
 const session = require("express-session");
 const User = require('../models/mongoose-model');
 const passportLocalMongoose = require('passport-local-mongoose');
@@ -7,6 +8,7 @@ const {
   Zybriq,
   zybriqsSchema
 } = require('../models/zybriqs-model');
+
 
 
 router.get("/", (req, res) => {
@@ -25,9 +27,9 @@ router.post("/", (req, res) => {
 
 
   passport.authenticate("local", {
-      successRedirect: "/",
-      failureRedirect: "/login",
-    })
+    successRedirect: "/",
+    failureRedirect: "/login",
+  })
     (req, res, function () {
 
       console.log('authenticated: ');
@@ -49,7 +51,28 @@ router.post("/", (req, res) => {
         res.redirect("/login");
       }
     });
+});
+
+router.get('/google', passport.authenticate('google', {
+  scope: ['profile']
+}))
+// , (req, res) => {
+//   console.log("login with google at '/google/ route.");
+// }
+
+router.get('/google/success', passport.authenticate('google'), (req, res) => {
+
+  console.log('In /google/success route');
+  // console.log(req.user);
+  //req.user is available on the req object because it is deserialized by passport
+  //passport.initialize() and cookieSession are necessary for this.
+  // console.log("USER: ", req.user);
+  // req.session.bleh = "bleh";
+  // // res.send('You have reached the callback uri');
+  res.redirect('/')
 
 });
+
+
 
 module.exports = router;

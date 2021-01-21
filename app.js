@@ -1,6 +1,3 @@
-//https://whispering-castle-65063.herokuapp.com/
-// https://git.heroku.com/whispering-castle-65063.git
-
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -28,6 +25,7 @@ const {
   zybriqSchema
 } = require("./models/zybriqs-model");
 
+//Forwards the http site to the secure https domain.
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     if (req.header('x-forwarded-proto') !== 'https')
