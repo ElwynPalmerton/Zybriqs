@@ -9,7 +9,8 @@
   <meta name="description" content="ejs page">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="stylesheet" href=""> -->
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
   <style>
     p,
@@ -55,13 +56,62 @@
     .buttonDiv {
       text-align: center;
     }
+
+    /* google button  */
+
+    .google-btn {
+      width: 300px;
+      height: 42px;
+      background-color: #4285f4;
+      border-radius: 2px;
+      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+    }
+
+    .google-icon-wrapper {
+      box-sizing: content-box;
+      position: absolute;
+      margin-top: 1px;
+      margin-left: 1px;
+      width: 40px;
+      height: 40px;
+      border-radius: 2px;
+      background-color: #fff;
+    }
+
+    .google-icon {
+      text-align: left;
+      position: relative;
+      margin-top: 11px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-text {
+      font-family: 'Roboto', sans-serif;
+      box-sizing: content-box;
+      text-align: center;
+      /* float: right; */
+      padding: 10px;
+      /* margin: 20px 11px 0 0; */
+      color: #fff;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+
+    }
+
+    .btn-text:hover {
+      box-shadow: 0 0 6px #4285f4;
+    }
+
+    .btn-text:active {
+      background: #1669F2;
+    }
   </style>
 
 
 </head>
 
 <!-- This is very weird and patchy but the VSCode formatting was messing up the filepath and this is what I had time to figure out: -->
-
 <% headerPath="../partials/header" %>
   <%-include(`${headerPath}`) -%>
 
@@ -94,10 +144,30 @@
               <button action="/register" method="get">Register</button>
 
             </form>
-            <a class="google-btn" href="/login/google"><button>Google+</button></a>
+            <!-- <a class="google-btn" href="/login/google"><button>Google+</button></a> -->
+
+
+
+            <a href="/login/google" id="google-button" class=" btn btn-google">
+              </i> Sign in with Google
+            </a>
+            <!-- btn btn-block btn-social -->
+
+
+
+            <!-- <a id="google-button" class="btn btn-block btn-social btn-google">
+              <i class="fa fa-google"></i> Sign in with Google
+            </a> -->
+
+            <div class="google-btn">
+              <div class="google-icon-wrapper">
+                <img class="google-icon"
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+              </div>
+              <p class="btn-text"><b>Sign in with google</b></p>
+            </div>
 
           </div>
-
       </div>
       </main>
     </body>
