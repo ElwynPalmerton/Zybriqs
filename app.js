@@ -66,7 +66,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose
-
   .connect(
     process.env.DATABASE_URL, {
     useNewUrlParser: true,
@@ -79,8 +78,6 @@ mongoose
   .catch((error) => {
     console.log("Mongo connection error:", error);
   });
-
-
 
 mongoose.set("useCreateIndex", true);
 
@@ -193,5 +190,3 @@ if (port == null || port == "") {
 app.listen(port, function () {
   console.log("Server has started.");
 });
-
-//app.listen(3000, console.log("Running server on port 3000"));
