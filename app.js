@@ -56,7 +56,7 @@ let db;
 app.use(
   session({
     store: new mongoStore({
-      url: DATABASE_URL,
+      url: process.env.DATABASE_URL,
     }),
     secret: SECRET,
     resave: true,
