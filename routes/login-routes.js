@@ -25,9 +25,9 @@ router.post("/", (req, res) => {
 
 
   passport.authenticate("local", {
-      successRedirect: "/",
-      failureRedirect: "/login",
-    })
+    successRedirect: "/",
+    failureRedirect: "/login",
+  })
     (req, res, function () {
 
       console.log('authenticated: ');
@@ -49,7 +49,17 @@ router.post("/", (req, res) => {
         res.redirect("/login");
       }
     });
-
 });
+
+router.get('/google', passport.authenticate('google', {
+  scope: ['profile']
+}))
+
+
+router.get('/google/success', passport.authenticate('google'), (req, res) => {
+  console.log('In /google/success route');
+  res.redirect('/')
+});
+
 
 module.exports = router;
