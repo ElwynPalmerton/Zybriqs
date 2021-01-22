@@ -38,10 +38,6 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-// SECRET = "Dumb secret"
-// DATABASE_URL = "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority"
-
-
 app.use(express.static(__dirname + "/client"));
 
 app.set("view engine", "ejs");
@@ -73,7 +69,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose
-
   .connect(
     process.env.DATABASE_URL, {
     useNewUrlParser: true,

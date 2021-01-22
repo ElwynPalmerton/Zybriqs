@@ -64,5 +64,10 @@ router.get('/google/success', passport.authenticate('google'), (req, res) => {
   res.redirect('/')
 });
 
+router.get('/privacy', (req, res) => {
+  res.render('pages/privacy.ejs', {
+    user: req.user,
+  });
+})
 
 module.exports = router;

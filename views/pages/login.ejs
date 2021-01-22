@@ -41,6 +41,9 @@
 
     input {
       width: 300px;
+      height: 50px;
+      border: solid 3px #3f5a63;
+      border-radius: 12px;
       margin-bottom: 23px !important;
     }
 
@@ -68,7 +71,7 @@
     }
 
     .google-icon-wrapper {
-      box-sizing: content-box;
+      box-sizing: border-box;
       position: absolute;
       margin-top: 1px;
       margin-left: 1px;
@@ -76,11 +79,13 @@
       height: 40px;
       border-radius: 2px;
       background-color: #fff;
+      text-align: center;
     }
 
     .google-icon {
-      text-align: left;
+      text-align: center;
       position: relative;
+      margin: 0 auto;
       margin-top: 11px;
       width: 18px;
       height: 18px;
@@ -105,6 +110,11 @@
 
     .btn-text:active {
       background: #1669F2;
+    }
+
+    .privacy {
+      margin-top: 20px;
+      text-align: left;
     }
   </style>
 
@@ -150,13 +160,23 @@
             </div>
           </a>
 
-          <!-- Register  -->
-          <div class="loginRegister">
-            <p>OR</p>
-            <form action="/register" method="get">
-              <button action="/register" method="get">Register</button>
-            </form>
+          <!-- Privacy Policy  -->
+          <div class="privacy">
+            <a href="https://www.iubenda.com/privacy-policy/21479875" class="iubenda-white iubenda-embed"
+              title="Privacy Policy ">Privacy Policy</a>
+            <script
+              type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
           </div>
+
+      </div>
+
+      <!-- Register  -->
+      <div class="loginRegister">
+        <p>OR</p>
+        <form action="/register" method="get">
+          <button action="/register" method="get">Register</button>
+        </form>
+      </div>
 
       </div>
       </main>
