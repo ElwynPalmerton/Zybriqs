@@ -37,8 +37,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-SECRET = "Dumb secret"
-DATABASE_URL = "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority"
+// SECRET = "Dumb secret"
+// DATABASE_URL = "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority"
 
 
 app.use(express.static(__dirname + "/client"));
@@ -74,7 +74,7 @@ app.use(passport.session());
 mongoose
 
   .connect(
-    DATABASE_URL, {
+    process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
