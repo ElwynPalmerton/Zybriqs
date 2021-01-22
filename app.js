@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-// SECRET = "Dumb secret"
+SECRET = "Dumb secret"
 // DATABASE_URL = "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority"
 
 
