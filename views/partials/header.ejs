@@ -7,14 +7,12 @@
 <!--<![endif]-->
 
 <head>
-
   <!-- meta  -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
   <!-- Stylesheets  -->
   <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" />
@@ -24,8 +22,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <!-- End Stylesheets  -->
 
-
-
   <!-- jQuery  -->
   <!-- Poppper  -->
   <!-- BootStrap  -->
@@ -34,14 +30,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-  </script>
+    </script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-
-
-
 
 </head>
 
@@ -53,29 +44,23 @@
         <a class="name navbar-brand" href="/">
           Zybriqs
         </a>
-
-
-
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-
-
-
           <ul class="navbar-nav ml-auto">
             <% if (user) { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</span></a>
-            </li>
-            <% } else if (!user) { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/register">Register</a>
-            </li>
-            <% } %>
-            <li class="nav-item">
-              <a class="nav-link" href="/About">About</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</span></a>
+              </li>
+              <% } else if (!user) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/register">Register</a>
+                </li>
+                <% } %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/About">About</a>
+                  </li>
           </ul>
         </div>
       </nav>
