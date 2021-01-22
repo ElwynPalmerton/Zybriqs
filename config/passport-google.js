@@ -17,9 +17,9 @@ passport.deserializeUser((id, done) => {
 
 
 passport.use(new GoogleStrategy({
-  clientID: GOOGLE_CLIENT_ID,  //process.env.GOOGLE_CLIENT_ID,
-  clientSecret: GOOGLE_CLIENT_SECRET,  //process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "/login/google/success",
+  clientID: process.env.GOOGLE_CLIENT_ID,  //process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,  //process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: "https://www.zybriqs.com/login/google/success",
 },
   function (accessToken, refreshToken, profile, done) {
     console.log("Google profile: ", profile)
