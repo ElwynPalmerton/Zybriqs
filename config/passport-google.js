@@ -5,6 +5,16 @@ const User = require('../models/mongoose-model');
 const GOOGLE_CLIENT_ID = "317441507555-cbqd655r37mam0q0d9d8dvpvgh914pl9.apps.googleusercontent.com"
 const GOOGLE_CLIENT_SECRET = "YEBEBfZ7mvYlkuR_EiYrXzB8"
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+})
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  })
+})
+
 
 passport.use(new GoogleStrategy({
   clientID: GOOGLE_CLIENT_ID,  //process.env.GOOGLE_CLIENT_ID,

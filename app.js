@@ -9,7 +9,7 @@ const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
-const passportGoogle = require('passport-google.js')
+const passportGoogle = require('./config/passport-google.js')
 
 //mongo store.
 const mongoStore = require("connect-mongo")(session);

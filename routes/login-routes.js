@@ -58,6 +58,9 @@ router.get('/google', passport.authenticate('google', {
 
 router.get('/google/success', passport.authenticate('google'), (req, res) => {
   console.log('In /google/success route');
+  console.log('authenticated: ');
+  console.log(req.isAuthenticated);
+  console.log(req.user);
   res.redirect('/')
 });
 

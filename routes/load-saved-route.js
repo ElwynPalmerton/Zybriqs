@@ -8,6 +8,9 @@ const {
 } = require("../models/zybriqs-model");
 
 router.get("/", (req, res) => {
+  console.log('load-saved-route');
+  console.log(req.user);
+
   if (req.isAuthenticated()) {
     Zybriq.find({
       //Something missing here?
