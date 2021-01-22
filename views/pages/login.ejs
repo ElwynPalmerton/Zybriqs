@@ -119,6 +119,7 @@
       <div class="container">
 
         <main>
+          <!-- Login with password -->
           <form action="/login" method="post">
             <input hidden name="cameFrom" value=<%=cameFrom%>>
             <h2> Login </h2>
@@ -138,37 +139,25 @@
             </div>
           </form>
 
+          <!-- Login Google Oauth 2.0  -->
+          <a href="/login/google">
+            <div class="google-btn">
+              <div class="google-icon-wrapper">
+                <img class="google-icon"
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+              </div>
+              <p class="btn-text"><b>Sign in with google</b></p>
+            </div>
+          </a>
+
+          <!-- Register  -->
           <div class="loginRegister">
             <p>OR</p>
             <form action="/register" method="get">
               <button action="/register" method="get">Register</button>
-
             </form>
-            <!-- <a class="google-btn" href="/login/google"><button>Google+</button></a> -->
-
-            <!-- 
-
-            <a href="/login/google" id="google-button" class=" btn btn-google">
-              </i> Sign in with Google
-            </a> -->
-            <!-- btn btn-block btn-social -->
-
-
-
-            <!-- <a id="google-button" class="btn btn-block btn-social btn-google">
-              <i class="fa fa-google"></i> Sign in with Google
-            </a> -->
-            <a href="/login/google">
-              <div class="google-btn">
-                <div class="google-icon-wrapper">
-                  <img class="google-icon"
-                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
-                </div>
-                <p class="btn-text"><b>Sign in with google</b></p>
-              </div>
-            </a>
-
           </div>
+
       </div>
       </main>
     </body>
