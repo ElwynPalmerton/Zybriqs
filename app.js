@@ -37,6 +37,10 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+SECRET = "Dumb secret"
+DATABASE_URL = "mongodb+srv://Elwyn-admin:O2DTmaWFbLETKnsj@cluster0-svbll.mongodb.net/Zybriqs?retryWrites=true&w=majority"
+
+
 app.use(express.static(__dirname + "/client"));
 
 app.set("view engine", "ejs");
@@ -52,9 +56,9 @@ let db;
 app.use(
   session({
     store: new mongoStore({
-      url: process.env.DATABASE_URL,
+      url: DATABASE_URL,
     }),
-    secret: process.env.SECRET,
+    secret: SECRET,
     resave: true,
     saveUninitialized: false,
     cookie: {
@@ -70,7 +74,7 @@ app.use(passport.session());
 mongoose
 
   .connect(
-    process.env.DATABASE_URL, {
+    DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
