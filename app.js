@@ -95,7 +95,13 @@ let tempZybriq;
 
 /////////////ROOT///////////////
 app.get("/", (req, res) => {
-  res.render("pages/index", {
+  res.render("pages/about", {
+    user: req.user,
+  });
+});
+
+app.get("/game", (req, res) => {
+  res.render("pages/game", {
     user: req.user,
   });
 });
@@ -105,7 +111,7 @@ app.use("/register", registerRoutes);
 app.use("/restore", restoreRoutes);
 
 app.get("/restore", (req, res) => {
-  res.render("pages/index", {
+  res.render("pages/game", {
     user: req.user,
   });
 });

@@ -14,10 +14,9 @@ const {
 //restore route.
 router.post("/", (req, res) => {
   let id = req.body.zibID;
-
   Zybriq.findOne({
-      _id: id,
-    })
+    _id: id,
+  })
     .then((foundZybriq) => {
       res.send(foundZybriq.state);
     })

@@ -27,8 +27,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <!-- End Stylesheets  -->
 
-
-
     <!-- jQuery  -->
     <!-- Poppper  -->
     <!-- BootStrap  -->
@@ -41,29 +39,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
-
-
-
-
   </head>
 
   <style>
     p,
     h2 {
-      color: #aaa;
+      color: #c7d8ed;
     }
 
     h1,
     .signature {
-      color: #c7d8ed
+      font-size: 20px;
+      color: #c7d8ed;
     }
 
     p {
+      color: #c7d8ed;
       margin-top: 15px !important;
       margin-bottom: 15px !important;
 
     }
+
+    .title {
+      font-size: 40px;
+      color: ghostwhite;
+    }
+
 
     h2 {
       margin: 30px !important;
@@ -75,7 +76,8 @@
     }
 
     i {
-      color: red;
+      font-size: 16px;
+      /* color: red; */
     }
 
     label {
@@ -96,8 +98,19 @@
       text-align: center;
     }
 
+    .welcome {
+      color: #c7d8ed;
+    }
+
     .buttonDiv {
       text-align: center;
+    }
+
+    #playZyb {
+      color: salmon;
+      font-size: 36px;
+      width: 400px;
+      height: 150px;
     }
   </style>
 
@@ -110,16 +123,13 @@
   <header>
     <div id="navContainer">
       <nav class="navbar navbar-expand-sm navbar-dark">
-        <a class="name navbar-brand" href="/">
+        <a class="name navbar-brand" href="/game">
           Zybriqs
         </a>
 
 
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-
-
-
           <ul class="navbar-nav ml-auto">
             <% if (user) { %>
               <li class="nav-item">
@@ -146,12 +156,27 @@
 
     <div class="container">
       </br>
-      <h1> About Zybriqs</h1>
+      <h4 class="welcome">Welcome to</h4>
+      <h1 class="title"> Zybriqs</h1>
       </br>
+      <p> Zybriqs is a creative coding interactive art project created by Elwyn Palmerton.</p>
+
       <p> Zybriqs was with created with P5.js, Javascript, Node.js, Express, MongoDB, and Mongoose.</p>
 
+      <p>Zybriqs was inspired by Daniel Daniel Shiffman's <a href="https://natureofcode.com/book/">The Nature
+          of Code.</a> The system for modeling physics are partly based on the examples in chapter two of the nature
+        of code.</p>
+
+      <p>Zybriqs.com does not respects the privacy of your data and will not access any of your personal data except for
+        the purposes of logging into Zybriqs.com and preserving the state of projects (your Zybriqses) on this site.</p>
+
+      <p>Please enjoy Zybriqs.com:</p>
+
+      <a href="/game">
+        <button id="playZyb">Play Zybriqs</button>
+      </a>
       <p>
-        If you would like to see other projects which I have made please checkout my web developer portforlio at <a
+        If you would like to see my other web development projects please check out my portfolio at <a
           href="http://elwynwebdev.com">elwynwebdev.com</a>. </p>
 
       </p>
@@ -159,9 +184,27 @@
       <p class="signature">
         -Elwyn Palmerton
       </p>
+      <p>
+        <i>Site creator and administrator</i>
+      </p>
+      <p>
+        contact: elwyn.palmerton@gmail.com
+      </p>
 
     </div>
+    <footer style="margin-top: 50px; text-align: center">
+      <p style="color: ghostwhite" id="copyright"></p>
+    </footer>
 
+
+    Copyright &copy;
+    <script type="text/javascript">
+      document.getElementById('copyright');
+      const year = new Date().getFullYear();
+      const text = "copyright " + year + " Elwyn Palmerton";
+      const elt = document.getElementById('copyright');
+      elt.innerText = text;
+    </script> .com
 
 
   </main>

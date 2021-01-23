@@ -61,7 +61,7 @@ router.get('/google/success', passport.authenticate('google'), (req, res) => {
   console.log('authenticated: ');
   console.log(req.isAuthenticated);
   console.log(req.user);
-  res.redirect('/')
+  res.redirect('/game')
 });
 
 router.get('/privacy', (req, res) => {
