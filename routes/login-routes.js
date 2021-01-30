@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
 
 
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/game",
     failureRedirect: "/login",
   })
     (req, res, function () {
@@ -43,7 +43,7 @@ router.post("/", (req, res) => {
         } else if (cameFrom === "deleteRoute") {
           res.redirect('/delete');
         } else {
-          res.redirect("/");
+          res.redirect("/game");
           //Ad a flag to the request object? and check for it here?
         }
       } else {
