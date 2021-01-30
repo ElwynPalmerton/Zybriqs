@@ -1,5 +1,4 @@
 function loadData(zibID) {
-
   const url = "/restore";
 
   let requestData = {
@@ -17,14 +16,15 @@ function loadData(zibID) {
   })
 }
 
+
 function reset() {
   initializeObjects(defaultObject2);
 }
 
+
 function loadSessionState() {
   //This is called from setup() in Sketch.js.
   // if the user is not logged in it should return the default object.
-
   const url = '/saveName/session';
 
   $.get(url, function (data) {

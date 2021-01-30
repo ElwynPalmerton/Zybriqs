@@ -3,17 +3,23 @@ This site is available at:
 https://whispering-castle-65063.herokuapp.com/
 www.zybriqs.com
 
-Zybriqs.com was my first full-stack project after completing an on-line boot-camp - almost a year ago now. (This was how I spent the first two or three months of the pandemic.) Given that, making this site was something of a struggle and suffice to say that it could be more well organized. 
+Zybriqs.com was my first full-stack project after completing an on-line boot-camp - almost a year ago now. (This was how I spent the first two or three months of the pandemic.) Given that, making this site was something of a struggle but also one of the most exciting parts of my programming journey. 
 
-That said, I do my best here explain how it is organized.
+That said, a lot of things here I would do differently if I made this again. At any rate, I do my best here explain how it is (imperfectly) organized.
 
-The main page - where all of the action happens is rendered from '/game'.
+The main page - where all of the action happens is rendered from the '/game' route which sends the EJS 'game' view.
 
 This is where all the action happens. The EJS template game.ejs contains a large number of scripts which create the animation and the buttons. It also contains links to the login/register and about pages.
 
-The animation runs in p5.js. P5 simplifies some of the code for animating in javascript. Draw.js contains the function draw() which runs in loop when the animation is happening. This replaces the "requestAnimationFrame" calls which run animations in JS. Some key files here are Sketch.js and setup.js. Setup initializes the animation and the instantiates the objects for each animation element's class. 
+The animation runs in p5.js. P5 simplifies some of the code for animating in javascript. Draw.js contains the function draw() which runs in loop when the animation is happening. This replaces the "requestAnimationFrame" logic calls which usually runs animations in JS. Some key files here are Sketch.js and setup.js. Setup calls initializeObjects which initializes the the objects for each class of elements in the animation. 
 
-It also calls initializeObjects. loadData and saveState are where the frontend javascript calls the backend to load or save Zybriqs states. The "classes" folder contains files for each class of item represented in the animation: drag, acceleration, balls, blocks, and the background. Acceleration is just drag with a negative value for drag.
+Importantly, Setup also determines where the Zybriqs state is being loaded from and then calls initializeObjects with the state data. initialize object takes a single Zybriqs object representing the state of the animation - for instance a saved Zybriqs - and instantiates all of the elements in it. initializeObjects is called when the /game starts, when a saved Zybriqs is loaded from the database, and when one of the preset Zybriqs states is activated from the controls on the right-hand side panel drop-downs.
+
+loadData and saveState are where the frontend javascript calls the backend to load or save Zybriqs states. loadData.js contains loadData which fetches a Zybriqs state from the backend and loadSessionData which retrieves saved session data.
+
+submitData and submitSessionData, in the file saveState, send the state to the backend to save it and save session state, respectively.
+
+The "classes" folder contains files for each class of item represented in the animation: drag, acceleration, balls, blocks, and the background. Acceleration is just drag with a negative value for drag.
 
 In the "interface" folder the files makeButtons and createController are important. makeButtons contains a function for each button at the bottom of the screen. createController contains the logic for all of the sliders on the right. This contains all of the logic for the buttons and their actions. After I made this I began to undertand why frameworks are valuable. This would have been a lot better had I made it in React. As it is it was extremely elaborate challenge and exercise in tedious chains of logic. It works though. When you press any of the buttons it activates the action for that button while simultaneously pausing the action. Or, if the action is already paused each of the action buttons serves double-duty as a play button.
 
@@ -24,16 +30,18 @@ Backend:
 
 Here is how the backend API works:
 
+LOAD SAVED NAMES
 '/loadSavedNames'
 (load-saved-routes.js)
 
-This route sends the names and ids of all of the save Zybriqses for the current user.
+This route sends the names and ids of all of the save Zybriqses for the current user and renders them with an EJS view.
 
 '/delete' 
 (delete-routes.js)
 
 The get route ('/delete') sends the list of Zybriqs and the post route lets the user delete a Zybriqs.
 
+LOGIN ROUTES
 /login
 get('/login') - Renders the login form.
 post('/login') - Takes the username and password and authenticates them using passport.
@@ -41,3 +49,17 @@ post('/login') - Takes the username and password and authenticates them using pa
 get '/login/google' and '/login/google/success'
 Routes for the passport-google-OAuth20 login. This works in development but it is not live yet - pending approval from Google.
 
+REGISTER ROUTES
+/register
+get('/register') - Renders the register form.
+post('/register') - Takes the username and password and authenticates them using passport.
+
+LOAD SAVED
+get '/loadSavedNames'
+A single get route which sends the users saved Zybriqses and ejs view showing them to the frontend.
+
+RESTORE ROUTES
+-Takes the id for a Zybriqs state (from the load-saved-routes) and finds the Zybriqs state by zybriqs ID.
+
+SAVE ROUTES
+//get a post routes for saving Zybriqses.

@@ -90,9 +90,11 @@ function setup() {
   initializeCanvas(initWidth, initHeight, setScale3);
   createResizeListener();
 
+  //Gets the params from the URL
   const urlParams = new URLSearchParams(window.location.search);
   savedZib = urlParams.get("savedZib");
 
+  //zibState is the default object.
   let zibState = Object.assign({}, defaultObject2);
 
   if (savedZib) {
