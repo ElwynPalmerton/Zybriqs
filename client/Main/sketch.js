@@ -1,7 +1,5 @@
 //Zibriqs by Elwyn Palmerton
 //
-//
-//
 
 //Object variables:
 const balls = [];
@@ -82,9 +80,7 @@ function createResizeListener() {
     }
   }
 }
-
 ///////SETUP///////
-
 
 
 function setup() {
@@ -108,12 +104,7 @@ function setup() {
     //Instead of calling initializeObjects from loadData, it should return the value.
     zibState = Object.assign({}, savedZybObject);
   } else {
-    loadSessionState();
-    // if (newSessionState !== null) {
-    //   zibState = Object.assign({}, newSessionState);
-    //   console.log('session zib state: ', zibState);
-    //   //This should use object.assign??? (Here and above?)
-    // }
+    loadSessionState();  //Retrieves session data from '/saveName/session';
   }
 
   initializeObjects(defaultObject2);
@@ -126,7 +117,7 @@ function setup() {
   function addSessionUpdateListener() {
     let body = document.body;
     body.addEventListener("mouseup", () => {
-      submitSession();
+      submitSession();   //This function is in saveState.
     });
   }
   addSessionUpdateListener();

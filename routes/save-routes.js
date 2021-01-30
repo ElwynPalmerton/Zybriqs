@@ -15,6 +15,8 @@ const maxZybs = 3;
 // Initial route
 // for saving Zybriqs 's.
 // Front-end sends sends a post request of the Zybriq state here //////from submitData (in loadData.js);
+//
+// routes for 'saveName/'
 
 saveRoutes.post("/", (req, res) => {
   req.session.state = req.body.state;
@@ -71,7 +73,7 @@ saveRoutes.get("/", (req, res) => {
       if (req.session.exists === true) {
         msg = "That Zybriq already exists. Choose a new name:";
         req.session.exists = false;
-      } //This is probably a terrible
+      }
       res.render("pages/saveName", {
         user: req.user,
         message: msg,

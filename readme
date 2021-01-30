@@ -2,3 +2,19 @@ This site is available at:
 
 https://whispering-castle-65063.herokuapp.com/
 www.zybriqs.com
+
+Zybriqs.com was my first full-stack project after completing an on-line boot-camp - almost a year ago now. (This was how I spent the first two or three months of the pandemic.) Given that, making this site was something of a struggle and suffice to say that it could be more well organized. 
+
+That said, I do my best here explain how it is organized.
+
+The main page - where all of the action happens is rendered from '/game'.
+
+This is where all the action happens. The EJS template game.ejs contains a large number of scripts which create the animation and the buttons. It also contains links to the login/register and about pages.
+
+The animation runs in p5.js. p5 simplifies some of the code for animating in javascript. Draw.js contains the function draw() which runs in loop for as long as the animation is happening.Some key files here are Sketch.js and setup.js. Setup initializes the animation. It also calls initializeObjects. loadData and saveState are where the frontend javascript calls the backend to load or save Zybriqs states.
+
+In the "interface" folder the files makeButtons and createController are important. makeButtons contains a function for each button at the bottom of the screen. This contains all of the logic for the buttons and their actions. After I made this I began to undertand why frameworks are valuable. This would have been a lot better had I made it in React. As it is it was extremely elaborate challenge and exercise in tedious chains of logic. It works though. When you press any of the buttons it activates the action for that button while simultaneously pausing the action. Or, if the action is already paused each of the action buttons serves double-duty as a play button.
+
+The login and register routes use passport.js for authentication. I also successfully setup passport-google-OAuth but it has not been approved by Google yet for production and that is obviously a whole project that I may work eventually.
+
+
