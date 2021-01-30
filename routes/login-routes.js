@@ -8,6 +8,7 @@ const {
   zybriqsSchema
 } = require('../models/zybriqs-model');
 
+//'/login'
 
 router.get("/", (req, res) => {
   res.render("pages/login", {
