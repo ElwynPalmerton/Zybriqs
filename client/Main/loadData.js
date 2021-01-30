@@ -1,3 +1,4 @@
+
 function loadData(zibID) {
   const url = "/restore";
 
@@ -11,6 +12,8 @@ function loadData(zibID) {
     if (newStateJSON) {
       initializeObjects(newStateJSON);
       submitSession(); //Sends the session data to the server (saveState.js.)
+    } else {
+      initializeObjects(defaultObject2);
     }
     return newStateJSON;
   })
