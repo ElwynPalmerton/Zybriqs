@@ -3,7 +3,6 @@
 function drawElementsDuringSetup() {
 
   //Drawing dimmed elements.
-  console.log('Drawing Dimmed Elements.')
 
   tempBG = color(230, 30, 30, 1)
 

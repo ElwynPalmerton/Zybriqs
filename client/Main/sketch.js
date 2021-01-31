@@ -109,7 +109,7 @@ function setup() {
     loadSessionState();  //Retrieves session data from '/saveName/session';
   }
 
-  initializeObjects(empty);
+  initializeObjects(defaultObject2);
   //Initialize the interface.
   makeButtons();
   createController();

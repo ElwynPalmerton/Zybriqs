@@ -138,6 +138,7 @@ function listeners() {
             newAccelerator.height > minSize
           ) {
             reverseLiquids.push(newAccelerator);
+            console.log("reverseLiquids: ", reverseLiquids);
             clearDuplicates();
             createController();
             updateSliders2();

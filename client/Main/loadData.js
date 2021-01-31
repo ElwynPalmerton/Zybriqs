@@ -10,6 +10,7 @@ function loadData(zibID) {
     newStateJSON = JSON.parse(data);
     console.log("Loading state in loadData: ", newStateJSON);
     if (newStateJSON) {
+      console.log('new state');
       initializeObjects(newStateJSON);
       submitSession(); //Sends the session data to the server (saveState.js.)
     } else {

@@ -10,7 +10,7 @@ function draw() {
     backgroundArray[0].display();
 
     balls.forEach(ball => {
-      
+
       //Calculate wind.
       let wind = calculateWind();
       //calculateWind() is in Interface/physicsController - I should move this.
@@ -55,7 +55,7 @@ function draw() {
     }) //End for loop.
 
     //Color is just passed in to reverseLiquid so I can just create another set of sliders.
-    //   // SO NICE that I refactored it so that I can do this!!!!
+
 
     liquids.forEach((liquid, i) => {
       liquid.display(); //Liquid and reverseLiquid should be in the same array. See above?

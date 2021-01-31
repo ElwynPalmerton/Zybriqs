@@ -12,19 +12,22 @@ function mouseClicked() {
 
 function removeObjects(objArray, x, y) {
   for (let i = 0; i < objArray.length; i++) {
+    // for (let i = objArray.length; i >= 0; i--) {
     let l = objArray[i];
     if (x > l.start.x * scl &&
       x < l.start.x * scl + 15 &&
       y > l.start.y * scl &&
       y < l.start.y * scl + 15) {
 
+      console.log(objArray);
+
+      // objArray = objArray.splice(i, 1);
       objArray.splice(i, 1);
 
       createController();
       updateSliders2();
 
       showRemoveButtons();
-
     }
   }
 }
