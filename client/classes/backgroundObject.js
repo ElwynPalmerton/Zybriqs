@@ -11,17 +11,13 @@ class backgroundObject {
   }
 
   display() {
-
-
-
     let backgroundColor = this.color;
     // c.a = parseInt(c.a);
     // console.log("Background color alpha: ", backgroundColor.a)
     let p5bgColor = color(backgroundColor.h, backgroundColor.s, backgroundColor.l, parseFloat(backgroundColor.a));
     background(p5bgColor);
-
-
   }
+
 
   displayDimmed() {
 

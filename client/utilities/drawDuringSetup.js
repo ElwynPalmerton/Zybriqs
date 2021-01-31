@@ -8,7 +8,7 @@ function drawElementsDuringSetup() {
 
   backgroundArray[0].displayDimmed();
 
-  balls.forEach((ball) => {
+  moverSystem.balls.forEach((ball) => {
     ball.displayDimmed();
   })
 

@@ -1,18 +1,14 @@
 function initializeObjects(settings) {
-  balls.splice(0);
+  moverSystem.clear();
   blocks.splice(0);
   liquids.splice(0);
   reverseLiquids.splice(0);
   backgroundArray.splice(0);
 
-  for (let i = 0; i < settings.balls.length; i++) {
-    let ball = new Mover(random(initWidth), initHeight / 5, settings.balls[i]);
-    balls.push(ball);
-  }
+  moverSystem.addBalls(settings.balls);
+  console.log(moverSystem.balls);
 
-  //Create the background object using settings.backColor[0];
-  //console.log(settings.backgroundColor[0]);
-  //console.log("settings.backgroundColor", settings.backgroundColor);
+
   let bgObject = new backgroundObject(settings.backgroundColor[0]);
   backgroundArray.push(bgObject);
 
@@ -38,12 +34,6 @@ function initializeObjects(settings) {
     );
     liquids.push(liquid);
   }
-
-
-  //Add (reverseLiquid) start and end to the default object.
-  //
-  //Loop over setting.dragColor.length.
-  //Create the object and push it to liquids.
 
   for (let i = 0; i < settings.accel.length; i++) {
     let startX = settings.accel[i].start.x;
@@ -118,6 +108,6 @@ function reInitialize() {
       initializeObjects(nagy);
       break;
     default:
-      // Do nothing.
+    // Do nothing.
   }
 }

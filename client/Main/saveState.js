@@ -40,7 +40,7 @@ function saveState() {
   state = {};
 
   let ballColors = [];
-  balls.forEach((ball, i) => {
+  moverSystem.balls.forEach((ball, i) => {
     ballColors[i] = ball.color;
   });
 

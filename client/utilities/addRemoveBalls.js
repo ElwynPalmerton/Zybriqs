@@ -8,14 +8,14 @@ function addBalls() {
 
 
   let ball = new Mover(random(width), height / 5, defaultBallColor);
-  balls.push(ball);
+  moverSystem.balls.push(ball);
   qty++;
 }
 
 
 
 function removeBalls() {
-  balls.pop();
+  moverSystem.balls.pop();
   qty--;
 
 

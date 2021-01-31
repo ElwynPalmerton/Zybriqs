@@ -254,7 +254,7 @@ function makeRemoveBallsButton() {
 
   removeBallButton.addEventListener('click', (e) => {
 
-    if (balls.length > 0) {
+    if (moverSystem.balls.length > 0) {
       removeBalls();
       updateSliders();
       drawElementsDuringSetup();

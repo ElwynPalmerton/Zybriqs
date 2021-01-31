@@ -2,7 +2,11 @@
 //
 
 //Object variables:
-const balls = [];
+// const balls = [];
+
+let moverSystem = new MoverSystem([]);
+
+
 var qty = 3; //I can remove this after I change setup to just respond to the initialization object.
 const reverseLiquids = [];
 const liquids = [];
@@ -15,7 +19,7 @@ const dimAmt = 30;
 
 //Force variabes;
 let xOff = 0;
-let friction; //Can this be a variable inside of the mover class???
+let friction;
 let dragCoefficient = 0.01;
 const acceleratorCoefficient = 0.01;
 const gravityConstant = 0.05;
@@ -108,6 +112,7 @@ function setup() {
   } else {
     loadSessionState();  //Retrieves session data from '/saveName/session';
   }
+
 
   initializeObjects(defaultObject2);
   //Initialize the interface.

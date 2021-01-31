@@ -128,6 +128,7 @@ function updateSliders2() {
   //... it does NOT call createController() because there was
   //... an issue where it would reset to the first object selection every time.
 
+  createController();
   let objectSelector = document.getElementById('objectSelector');
 
   let objects = getObjectArray(objectSelector.value);
@@ -145,7 +146,7 @@ function updateSliders2() {
 function getObjectArray(obj) {
   let objArray = [];
   if (obj === "Balls") {
-    objArray = balls;
+    objArray = moverSystem.balls;
   } else if (obj === "Drag") {
     objArray = liquids;
   } else if (obj === "Accelerator") {

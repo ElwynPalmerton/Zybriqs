@@ -33,8 +33,6 @@ class Liquid {
       this.start.y = this.end.y;
       this.end.y = tempY;
     }
-
-
   } //End constructor
 
   displayDimmed() {
