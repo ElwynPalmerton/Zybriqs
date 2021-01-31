@@ -5,10 +5,10 @@ function draw() {
       readPhysicsSliders()
     }
 
-
     backgroundArray[0].display();
 
     moverSystem.update();
+    moverSystem.display();
 
     liquids.forEach((liquid, i) => {
       liquid.display(); //Liquid and reverseLiquid should be in the same array. See above?
@@ -20,7 +20,6 @@ function draw() {
     blocks.forEach(block => {
       block.display();
     })
-
 
   }
 } //End of draw loop.

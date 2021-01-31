@@ -59,7 +59,12 @@ class MoverSystem {
       //Display the balls, liquid, and reverseLiquid.
       ball.display();
     }) //End for loop.
+  }
 
+  display() {
+    this.balls.forEach(ball => {
+      ball.display();
+    });
   }
 
 }

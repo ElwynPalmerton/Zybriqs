@@ -22,7 +22,7 @@ function applyColors() {
       palette = maraschino;
       break;
     default:
-      // Do nothing.
+    // Do nothing.
   }
 
 
@@ -46,12 +46,6 @@ function applyColors() {
     b.color = Object.assign({}, palette.blocks[index]);
   });
 
-
-
   let bgObject = new backgroundObject(palette.backgroundColor[0]);
-
-
-
   backgroundArray[0] = bgObject;
-
 }

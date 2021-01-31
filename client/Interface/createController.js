@@ -128,7 +128,7 @@ function updateSliders2() {
   //... it does NOT call createController() because there was
   //... an issue where it would reset to the first object selection every time.
 
-  createController();
+  // createController();
   let objectSelector = document.getElementById('objectSelector');
 
   let objects = getObjectArray(objectSelector.value);
